@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using TicTacToe.Implementations;
 
@@ -21,11 +21,11 @@ namespace L2
                 {
                     enterNewNames = false;
 
-                    Console.Write("Enter player 1(X) name: ");
+                    Console.Write(Enter player 1(X) name );
                     var player1Name = Console.ReadLine();
                     player1.SetPlayerName(player1Name);
 
-                    Console.Write("Enter player 2(O) name: ");
+                    Console.Write(Enter player 2(O) name );
                     var player2Name = Console.ReadLine();
                     player2.SetPlayerName(player2Name);
 
@@ -38,31 +38,31 @@ namespace L2
                 
                 do
                 {
-                    //Drawing the Board
+                    Drawing the Board
                     board.DrawGameBoard(tictactoe.GameBoard);
 
                     if(counter % 2 == 1)
                     {
-                        Console.WriteLine($"{player2.Name}'s move.");
+                        Console.WriteLine(${player2.Name}'s move.);
                     }
                     else
                     {
-                        Console.WriteLine($"{player1.Name}'s move.");
+                        Console.WriteLine(${player1.Name}'s move.);
                     }
 
-                    //User Input Indicies
-                    Console.Write("Enter the row index: ");
+                    User Input Indicies
+                    Console.Write(Enter the row index );
                     var row = int.Parse(Console.ReadLine());
 
-                    Console.Write("Enter the column index: ");
+                    Console.Write(Enter the column index );
                     var col = int.Parse(Console.ReadLine());
 
-                    isWin = tictactoe.PlayerMove(counter % 2 == 1 ? player2 : player1, row, col);
-                    for (int i = 0; i < 3; i++)
+                    isWin = tictactoe.PlayerMove(counter % 2 == 1  player2  player1, row, col);
+                    for (int i = 0; i  3; i++)
                     {
-                        for (int j = 0; j < 3; j++)
+                        for (int j = 0; j  3; j++)
                         {
-                            Console.Write($"{tictactoe.GameBoard[i, j]}  ");
+                            Console.Write(${tictactoe.GameBoard[i, j]}  );
                         }
                         Console.WriteLine();
                     }
@@ -73,9 +73,9 @@ namespace L2
                     if (isDraw)
                     {
                         isWin = false;
-                        Console.WriteLine("The game is draw.");
+                        Console.WriteLine(The game is draw.);
                         counter = 0;
-                        Console.WriteLine("Press Enter");
+                        Console.WriteLine(Press Enter);
                         break;
                     }
 
@@ -83,34 +83,34 @@ namespace L2
 
                 if (isWin)
                 {
-                    var winPlayer = (counter - 1) % 2 == 1 ? player2 : player1;
+                    var winPlayer = (counter - 1) % 2 == 1  player2  player1;
 
-                    Console.WriteLine("Name: " + winPlayer.Name);
-                    Console.WriteLine("X_Or_O: " + winPlayer.X_Or_O);
+                    Console.WriteLine(Name  + winPlayer.Name);
+                    Console.WriteLine(X_Or_O  + winPlayer.X_Or_O);
 
                     winPlayer.SetPlayerWinCount(++winPlayer.WinCount);
-                    Console.WriteLine("WinCount: " + winPlayer.WinCount);
+                    Console.WriteLine(WinCount  + winPlayer.WinCount);
                 }
 
                 
                 Console.ReadKey();
                 Console.Clear();
 
-                Console.WriteLine("Play Again ? (y, n)");
+                Console.WriteLine(Play Again  (y, n));
                 string choice = Console.ReadLine();
                 
                 Console.Clear();
 
-                if (choice.ToLowerInvariant() == "n")
+                if (choice.ToLowerInvariant() == n)
                 {
                     counter = 0;
                     break;
                 }
 
-                Console.WriteLine("Enter new names? (y, n)");
+                Console.WriteLine(Enter new names (y, n));
                 string choiceNewName = Console.ReadLine();
 
-                if (choiceNewName.ToLowerInvariant() == "y")
+                if (choiceNewName.ToLowerInvariant() == y)
                 {
                     enterNewNames = true; 
                 }
