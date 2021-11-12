@@ -36,6 +36,7 @@ namespace Game
             this.resetbtn = new System.Windows.Forms.Button();
             this.newgamebtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.playerMove = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // pl1name
@@ -73,9 +74,9 @@ namespace Game
             // resetbtn
             // 
             this.resetbtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.resetbtn.Location = new System.Drawing.Point(367, 129);
+            this.resetbtn.Location = new System.Drawing.Point(368, 194);
             this.resetbtn.Name = "resetbtn";
-            this.resetbtn.Size = new System.Drawing.Size(196, 86);
+            this.resetbtn.Size = new System.Drawing.Size(196, 60);
             this.resetbtn.TabIndex = 13;
             this.resetbtn.Text = "Reset";
             this.resetbtn.UseVisualStyleBackColor = false;
@@ -83,9 +84,9 @@ namespace Game
             // newgamebtn
             // 
             this.newgamebtn.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.newgamebtn.Location = new System.Drawing.Point(367, 224);
+            this.newgamebtn.Location = new System.Drawing.Point(367, 260);
             this.newgamebtn.Name = "newgamebtn";
-            this.newgamebtn.Size = new System.Drawing.Size(196, 95);
+            this.newgamebtn.Size = new System.Drawing.Size(196, 60);
             this.newgamebtn.TabIndex = 14;
             this.newgamebtn.Text = "Strat A New Game";
             this.newgamebtn.UseVisualStyleBackColor = false;
@@ -97,12 +98,22 @@ namespace Game
             this.panel1.Size = new System.Drawing.Size(346, 312);
             this.panel1.TabIndex = 15;
             // 
+            // playerMove
+            // 
+            this.playerMove.AutoSize = true;
+            this.playerMove.Location = new System.Drawing.Point(372, 124);
+            this.playerMove.Name = "playerMove";
+            this.playerMove.Size = new System.Drawing.Size(38, 15);
+            this.playerMove.TabIndex = 16;
+            this.playerMove.Text = "label1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(573, 336);
+            this.Controls.Add(this.playerMove);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.newgamebtn);
             this.Controls.Add(this.resetbtn);
@@ -125,6 +136,7 @@ namespace Game
         private System.Windows.Forms.Button resetbtn;
         private System.Windows.Forms.Button newgamebtn;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label playerMove;
     }
 }
 
