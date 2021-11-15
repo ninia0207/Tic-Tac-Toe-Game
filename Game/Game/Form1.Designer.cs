@@ -68,12 +68,12 @@ namespace Game
             this.label.AutoSize = true;
             this.label.Location = new System.Drawing.Point(367, 144);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(38, 15);
+            this.label.Size = new System.Drawing.Size(0, 15);
             this.label.TabIndex = 16;
-            this.label.Text = "label1";
             // 
             // PlayerButton
             // 
+            this.PlayerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PlayerButton.Location = new System.Drawing.Point(369, 12);
             this.PlayerButton.Name = "PlayerButton";
             this.PlayerButton.Size = new System.Drawing.Size(195, 110);

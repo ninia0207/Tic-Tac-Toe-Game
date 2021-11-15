@@ -23,6 +23,9 @@ namespace Game
         {
             InitializeComponent();
             InitializeGameBoard();
+            PlayerButton.Font = new System.Drawing.Font(DefaultFont.FontFamily, 50, FontStyle.Bold);
+            PlayerButton.FlatStyle = FlatStyle.Flat;
+            
             //CheckWin();
         }
 
@@ -117,10 +120,11 @@ namespace Game
         private void Button_isClicked(object sender, EventArgs e)
         {
             Button button = sender as Button;
-            var player = Counter % 2 == 1 ? Player1 : Player2;
 
-            PlayerButton.Text = player.XorO.ToString();
+            if (button.Text != "") return;
+
             button.Text = PlayerButton.Text;
+            TogglePlayer();
         }
 
         private void TogglePlayer()
