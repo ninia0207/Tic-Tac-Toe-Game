@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,20 +14,19 @@ namespace Game
 {
     public partial class Form1 : Form
     {
-        bool EnterNewNames = true;
-        Player Player1 = new Player('X');
-        Player Player2 = new Player('O');
+
+        Player player1 = new Player('X');
+        Player player2 = new Player('O');
         int Counter = 0;
-        string Player1Name;
-        string Player2Name;
+        int winCount;
         public Form1()
         {
             InitializeComponent();
             InitializeGameBoard();
             PlayerButton.Font = new System.Drawing.Font(DefaultFont.FontFamily, 50, FontStyle.Bold);
             PlayerButton.FlatStyle = FlatStyle.Flat;
-            
-            //CheckWin();
+            PlayerButton.Text = player1.XorO.ToString();
+
         }
 
         Button[,] GameBoard = new Button[3, 3];
@@ -50,72 +50,85 @@ namespace Game
             }
         }
 
-        //public void CheckWin()
-        //{
-        //    do
-        //    {
-                
-        //        var tictactoe = new TicTacToe.Implementations.Game(Player1, Player2);
-                
-        //        WhoWins(Counter % 2 == 1 ? Player1 : Player1);
-                
-        //        Counter++;
+        public void DisplayWinCount()
+        {
+            WinCount.Text = $"{player1.XorO}: {player1.WinCount} \n{player2.XorO}: {player2.WinCount}";
+        }
+        
+        private void Win()
+        {
+            var playerXorO = PlayerButton.Text;
+            List<Button> winnerButs = new List<Button>();
 
-        //        bool isDraw = tictactoe.IsGameDraw(Counter);
-        //        if (isDraw)
-        //         {
-        //             label.Text = "Game is draw";
-        //             Counter = 0;
-        //             Application.Restart();
-        //        }
+            //Vertical Win
+            for (int i = 0; i < 3; i++)
+            {
+                winnerButs = new List<Button>();
+                if (GameBoard[i, 0].Text == playerXorO && GameBoard[i, 1].Text == playerXorO && GameBoard[i, 2].Text == playerXorO)
+                {
+                    winnerButs.Add(GameBoard[i, 0]);
+                    winnerButs.Add(GameBoard[i, 1]);
+                    winnerButs.Add(GameBoard[i, 2]);
+                    DisplayWinner(winnerButs, PlayerButton.Text == "X" ? player1 : player2);
+                }
+            }
 
-        //        var winPlayer = (Counter - 1) % 2 == 1 ? Player2 : Player1;
+            //Horizontal Win
+            for (int j = 0; j < 3; j++)
+            {
+                winnerButs = new List<Button>();
+                if (GameBoard[0, j].Text == playerXorO && GameBoard[1, j].Text == playerXorO && GameBoard[2, j].Text == playerXorO)
+                {
+                    winnerButs.Add(GameBoard[0, j]);
+                    winnerButs.Add(GameBoard[1, j]);
+                    winnerButs.Add(GameBoard[2, j]);
+                    DisplayWinner(winnerButs, PlayerButton.Text == "X" ? player1 : player2);
+                }
+            }
 
-        //        winPlayer.SetPlayerWinCount(++winPlayer.WinCount);
-                
-                
-        //    } while (true);
+            //Diagonal Win #1
+            winnerButs = new List<Button>();
+            for (int i = 0, j = 0; i < 3; i++, j++)
+            {
+                if (GameBoard[i, j].Text != PlayerButton.Text) break;
 
-        //}
+                winnerButs.Add(GameBoard[i, j]);
+                if (j == 2) DisplayWinner(winnerButs, PlayerButton.Text == "X" ? player1 : player2);
+            }
 
-        //public void WhoWins(Player player)
-        //{
-        //    var playerXorO = player.XorO.ToString();
+            //Diagonal Win #2
+            winnerButs = new List<Button>();
+            for (int i = 2, j = 0; j < 3; i--, j++)
+            {
+                if (GameBoard[i, j].Text != PlayerButton.Text) break;
 
-        //    //Vertical Win
-        //    for (int i = 0; i < 3; i++)
-        //    {
-        //        if (GameBoard[i, 0].Text == playerXorO && GameBoard[i, 1].Text == playerXorO && GameBoard[i, 2].Text == playerXorO)
-        //        {
-        //            MessageBox.Show($"Player {player.XorO} wins \n WinCount: {player.WinCount}");
-        //        }
-        //    }
+                winnerButs.Add(GameBoard[i, j]);
+                if (j == 2) DisplayWinner(winnerButs, PlayerButton.Text == "X" ? player1 : player2);
+            }
 
-        //    //Horizontal Win
-        //    for (int j = 0; j < 3; j++)
-        //    {
-        //        if (GameBoard[0, j].Text == playerXorO && GameBoard[1, j].Text == playerXorO && GameBoard[2, j].Text == playerXorO)
-        //        {
-        //            MessageBox.Show($"Player {player.XorO} wins \n WinCount: {player.WinCount}");
-        //        }
-        //    }
+            IsGameDraw();
+        }
 
-        //    //Diagonal Win
-        //    for (int i = 0; i < GameBoard.GetLength(0); i++)
-        //    {
+        private void IsGameDraw()
+        {
+            foreach (var button in GameBoard)
+            {
+                if (button.Text == "")
+                    return;
+            }
 
-        //        if (GameBoard[i, i].Text != playerXorO)
-        //        {
-        //            break;
-        //        }
-        //        if (i == GameBoard.GetLength(0) - 1)
-        //        {
-        //            MessageBox.Show($"Player {player.XorO} wins \n WinCount: {player.WinCount}");
-        //        }
-        //    }
-
-        //}
-
+            DisplayText.Text = $"Game is draw! \nReset the game";
+        }
+        private void DisplayWinner(List<Button> winnerButs, Player player)
+        {
+            foreach (var item in winnerButs)
+            {
+                item.BackColor = Color.Green;
+            }
+            player.WinCount++;
+            DisplayText.Text = $"Player {player.XorO} wins \nWinCount {player.XorO}: {player.WinCount}";
+            DisplayWinCount();
+        }
 
         private void Button_isClicked(object sender, EventArgs e)
         {
@@ -123,13 +136,17 @@ namespace Game
 
             if (button.Text != "") return;
 
+            
             button.Text = PlayerButton.Text;
             TogglePlayer();
+            playButtonClick("button_click.wav");
+            Counter++;
         }
 
         private void TogglePlayer()
         {
-            if(PlayerButton.Text == "X")
+            Win();
+            if (PlayerButton.Text == "X")
             {
                 PlayerButton.Text = "O";
             }
@@ -137,6 +154,28 @@ namespace Game
             {
                 PlayerButton.Text = "X";
             }
+        }
+        private void playButtonClick(string path)
+        {
+            SoundPlayer sound = new SoundPlayer($@"C:\Users\ninia\OneDrive\Documents\GitHub\Tic-Tac-Toe-Game\Media\{path}");
+            sound.Play();
+        }
+
+        private void newgamebtn_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+ 
+
+        private void Reset_Click(object sender, EventArgs e)
+        {
+            foreach (var item in GameBoard)
+            {
+                item.BackColor = default;
+                item.Text = "";
+
+            }
+            DisplayText.Text = "";
         }
     }
 }
