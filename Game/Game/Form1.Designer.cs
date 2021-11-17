@@ -30,11 +30,12 @@ namespace Game
         private void InitializeComponent()
         {
             this.newgamebtn = new System.Windows.Forms.Button();
-            this.label = new System.Windows.Forms.Label();
             this.PlayerButton = new System.Windows.Forms.Button();
-            this.DisplayText = new System.Windows.Forms.Label();
             this.Reset = new System.Windows.Forms.Button();
+            this.label = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.WinCount = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
@@ -50,14 +51,6 @@ namespace Game
             this.newgamebtn.UseVisualStyleBackColor = false;
             this.newgamebtn.Click += new System.EventHandler(this.newgamebtn_Click);
             // 
-            // label
-            // 
-            this.label.AutoSize = true;
-            this.label.Location = new System.Drawing.Point(367, 144);
-            this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(0, 15);
-            this.label.TabIndex = 16;
-            // 
             // PlayerButton
             // 
             this.PlayerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -67,16 +60,6 @@ namespace Game
             this.PlayerButton.TabIndex = 18;
             this.PlayerButton.Text = "X";
             this.PlayerButton.UseVisualStyleBackColor = true;
-            // 
-            // DisplayText
-            // 
-            this.DisplayText.AutoSize = true;
-            this.DisplayText.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.DisplayText.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.DisplayText.Location = new System.Drawing.Point(372, 137);
-            this.DisplayText.Name = "DisplayText";
-            this.DisplayText.Size = new System.Drawing.Size(0, 22);
-            this.DisplayText.TabIndex = 20;
             // 
             // Reset
             // 
@@ -90,21 +73,40 @@ namespace Game
             this.Reset.UseVisualStyleBackColor = false;
             this.Reset.Click += new System.EventHandler(this.Reset_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label1.Location = new System.Drawing.Point(372, 130);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 22);
+            this.label1.TabIndex = 20;
+            // 
             // WinCount
             // 
             this.WinCount.AutoSize = true;
             this.WinCount.Font = new System.Drawing.Font("Open Sans Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.WinCount.Location = new System.Drawing.Point(372, 189);
+            this.WinCount.Location = new System.Drawing.Point(3, 0);
             this.WinCount.Name = "WinCount";
             this.WinCount.Size = new System.Drawing.Size(0, 20);
             this.WinCount.TabIndex = 22;
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(200, 100);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(12, 8);
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(346, 312);
-            this.panel1.TabIndex = 15;
+            this.panel1.Size = new System.Drawing.Size(340, 336);
+            this.panel1.TabIndex = 22;
             // 
             // Form1
             // 
@@ -112,13 +114,11 @@ namespace Game
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(573, 336);
-            this.Controls.Add(this.WinCount);
-            this.Controls.Add(this.Reset);
-            this.Controls.Add(this.DisplayText);
-            this.Controls.Add(this.PlayerButton);
-            this.Controls.Add(this.label);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.newgamebtn);
+            this.Controls.Add(this.Reset);
+            this.Controls.Add(this.PlayerButton);
             this.Name = "Form1";
             this.Text = "Tic Tac Toe";
             this.ResumeLayout(false);
@@ -128,11 +128,12 @@ namespace Game
 
         #endregion
         private System.Windows.Forms.Button newgamebtn;
-        private System.Windows.Forms.Label label;
         private System.Windows.Forms.Button PlayerButton;
-        private System.Windows.Forms.Label DisplayText;
         private System.Windows.Forms.Button Reset;
+        private System.Windows.Forms.Label label;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label WinCount;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel1;
     }
 }
