@@ -169,6 +169,7 @@ namespace Game
 
             }
             label1.Text = "";
+            PlayerButton.Text = "X";
         }
 
     }
