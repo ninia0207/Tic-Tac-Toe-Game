@@ -6,7 +6,7 @@ namespace TicTacToe.Implementations
     {
         public string Name { get; set; }
         public int WinCount { get; set; }
-        public char XorO { get; set; }
+        public char X_Or_O { get; set; }
 
         public void SetPlayerName(string name)
         {
@@ -19,7 +19,7 @@ namespace TicTacToe.Implementations
         }
         public Player(char X_Or_O)
         {
-            this.XorO = X_Or_O;
+            this.X_Or_O = X_Or_O;
         }
 
     }
