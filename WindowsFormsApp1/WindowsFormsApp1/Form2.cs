@@ -40,14 +40,9 @@ namespace WindowsFormsApp1
             }
             tictactoe = new Game(Player1, Player2);
 
-            bool isDraw = tictactoe.IsGameDraw(counter);
-            if (isDraw)
-            {
-                isWin = false;
-                MessageBox.Show("The game is draw.");
-                counter = 0;
-            }
+            
 
+            playerTry.Text = "X";
             
         }
 
@@ -57,6 +52,7 @@ namespace WindowsFormsApp1
 
             if (button.Text != "") return;
             button.Text = counter % 2 == 1 ? Player2.X_Or_O.ToString() : Player1.X_Or_O.ToString();
+            playerTry.Text = counter % 2 == 1 ? Player1.X_Or_O.ToString() : Player2.X_Or_O.ToString();
             counter++;
             int row = 0;
             int col = 0;
@@ -79,10 +75,20 @@ namespace WindowsFormsApp1
             {
                 var winPlayer = (counter - 1) % 2 == 1 ? Player2 : Player1;
 
-                MessageBox.Show("Name: " + winPlayer.Name + "X_Or_O: " + winPlayer.X_Or_O);
+                MessageBox.Show($"Name: {winPlayer.Name}\nX_Or_O: {winPlayer.X_Or_O}");
 
                 winPlayer.SetPlayerWinCount(++winPlayer.WinCount);
-                displayText.Text = "WinCount: " + winPlayer.WinCount;
+                displayText.Text = $"{Player1.X_Or_O}: {Player1.WinCount} \n{Player2.X_Or_O}: {Player2.WinCount}";
+                Reset();
+            }
+
+            bool isDraw = tictactoe.IsGameDraw(counter);
+            if (isDraw)
+            {
+                isWin = false;
+                MessageBox.Show("The game is draw.");
+                counter = 0;
+                Reset();
             }
         }
 
@@ -91,12 +97,19 @@ namespace WindowsFormsApp1
 
         private void resetbtn_Click(object sender, EventArgs e)
         {
+            Reset();
+        }
+
+        private void Reset()
+        {
             counter = 0;
             isWin = false;
             foreach (var item in Buttons)
             {
                 item.Text = "";
             }
+            tictactoe.GameBoard = new char[3, 3];
+            playerTry.Text = "X";
         }
 
         private void newgamebtn_Click(object sender, EventArgs e)

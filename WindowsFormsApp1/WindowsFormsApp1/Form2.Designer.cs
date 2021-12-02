@@ -41,6 +41,7 @@
             this.resetbtn = new System.Windows.Forms.Button();
             this.newgamebtn = new System.Windows.Forms.Button();
             this.displayText = new System.Windows.Forms.Label();
+            this.playerTry = new System.Windows.Forms.Label();
             this.TableLayout1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -163,6 +164,7 @@
             // 
             // resetbtn
             // 
+            this.resetbtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.resetbtn.BackColor = System.Drawing.Color.SeaGreen;
             this.resetbtn.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resetbtn.Location = new System.Drawing.Point(558, 378);
@@ -175,6 +177,7 @@
             // 
             // newgamebtn
             // 
+            this.newgamebtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.newgamebtn.BackColor = System.Drawing.Color.SeaGreen;
             this.newgamebtn.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newgamebtn.Location = new System.Drawing.Point(558, 299);
@@ -189,10 +192,19 @@
             // 
             this.displayText.AutoSize = true;
             this.displayText.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.displayText.Location = new System.Drawing.Point(541, 19);
+            this.displayText.Location = new System.Drawing.Point(554, 24);
             this.displayText.Name = "displayText";
             this.displayText.Size = new System.Drawing.Size(0, 22);
             this.displayText.TabIndex = 3;
+            // 
+            // playerTry
+            // 
+            this.playerTry.AutoSize = true;
+            this.playerTry.Font = new System.Drawing.Font("Open Sans Semibold", 50F, System.Drawing.FontStyle.Bold);
+            this.playerTry.Location = new System.Drawing.Point(629, 201);
+            this.playerTry.Name = "playerTry";
+            this.playerTry.Size = new System.Drawing.Size(0, 92);
+            this.playerTry.TabIndex = 4;
             // 
             // Form2
             // 
@@ -200,6 +212,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.playerTry);
             this.Controls.Add(this.displayText);
             this.Controls.Add(this.newgamebtn);
             this.Controls.Add(this.resetbtn);
@@ -227,5 +240,6 @@
         private System.Windows.Forms.Button resetbtn;
         private System.Windows.Forms.Button newgamebtn;
         private System.Windows.Forms.Label displayText;
+        private System.Windows.Forms.Label playerTry;
     }
 }
