@@ -38,18 +38,35 @@ namespace TicTacToe.Implementations
                 }
             }
 
-            //Diagonal Win
+            //Diagonal Win 1
             for (int i = 0; i < GameBoard.GetLength(0); i++)
             {
 
-                if (GameBoard[i, i] != player.X_Or_O) {
-                    break; 
+                if (GameBoard[i, i] != player.X_Or_O)
+                {
+                    break;
                 }
-                if (i == GameBoard.GetLength(0) - 1) {
-                    return player; 
+                if (i == GameBoard.GetLength(0) - 1)
+                {
+                    return player;
                 }
+
+
             }
 
+            //Diagonal Win 2
+            for (int i = 2, j = 0; i < GameBoard.GetLength(0); i--, j++)
+            {
+                if (GameBoard[i, j] != player.X_Or_O)
+                {
+                    break;
+                }
+
+                if (j == GameBoard.GetLength(0) - 1)
+                {
+                    return player;
+                }
+            }
             return null;
 
         }

@@ -4,9 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media;
 using TicTacToe.Implementations;
 
 namespace WindowsFormsApp1
@@ -16,9 +19,11 @@ namespace WindowsFormsApp1
         public Button[,] Buttons { get; set; }
         int counter = 0;
         bool isWin = false;
-        public Player Player1 { get; set; }
-        public Player Player2 { get; set; }
+        public Player Player1 = new Player('X');
+        public Player Player2 = new Player('O');
+        public int PlayUntil { get; set; }
         Game tictactoe;
+        
         public Form2()
         {
             InitializeComponent();
@@ -39,13 +44,12 @@ namespace WindowsFormsApp1
                 }
             }
             tictactoe = new Game(Player1, Player2);
-
-            
-
             playerTry.Text = "X";
             
+            PlaySound("background-music");
         }
 
+        
         private void Button_Is_Clicked(object sender, EventArgs e)
         {
             Button button = sender as Button;
@@ -53,7 +57,7 @@ namespace WindowsFormsApp1
             if (button.Text != "") return;
             button.Text = counter % 2 == 1 ? Player2.X_Or_O.ToString() : Player1.X_Or_O.ToString();
             playerTry.Text = counter % 2 == 1 ? Player1.X_Or_O.ToString() : Player2.X_Or_O.ToString();
-            counter++;
+            
             int row = 0;
             int col = 0;
 
@@ -69,8 +73,10 @@ namespace WindowsFormsApp1
                     }
                 }
             }
-            isWin = tictactoe.PlayerMove(counter % 2 == 1 ? Player2 : Player1, row, col);
 
+
+            isWin = tictactoe.PlayerMove(counter % 2 == 1 ? Player2 : Player1, row, col);
+            counter++;
             if (isWin)
             {
                 var winPlayer = (counter - 1) % 2 == 1 ? Player2 : Player1;
@@ -78,10 +84,23 @@ namespace WindowsFormsApp1
                 MessageBox.Show($"Name: {winPlayer.Name}\nX_Or_O: {winPlayer.X_Or_O}");
 
                 winPlayer.SetPlayerWinCount(++winPlayer.WinCount);
-                displayText.Text = $"{Player1.X_Or_O}: {Player1.WinCount} \n{Player2.X_Or_O}: {Player2.WinCount}";
+                displayText.Text = $"{Player1.Name}({Player1.X_Or_O}): {Player1.WinCount} \n{Player2.Name}({Player2.X_Or_O}): {Player2.WinCount}";
                 Reset();
             }
-
+            if (Player1.WinCount == PlayUntil)
+            {
+                MessageBox.Show($"{Player1.Name} won this game. Win Count is {Player1.WinCount}");
+                Reset();
+                Player1.WinCount = 0;
+                Player2.WinCount = 0;
+            }
+            else if (Player2.WinCount == PlayUntil)
+            {
+                MessageBox.Show($"{Player2.Name} won this game. Win Count is {Player2.WinCount}");
+                Reset();
+                Player1.WinCount = 0;
+                Player2.WinCount = 0;
+            }
             bool isDraw = tictactoe.IsGameDraw(counter);
             if (isDraw)
             {
@@ -90,10 +109,9 @@ namespace WindowsFormsApp1
                 counter = 0;
                 Reset();
             }
+
+            
         }
-
-
-
 
         private void resetbtn_Click(object sender, EventArgs e)
         {
@@ -119,5 +137,12 @@ namespace WindowsFormsApp1
             var form1 = new Form1();
             form1.Show();
         }
+
+        public void PlaySound(string path)
+        {
+            SoundPlayer sound = new SoundPlayer($@"C:\Users\ninia\OneDrive\Documents\GitHub\Tic-Tac-Toe-Game\Media\{path}.wav");
+            sound.PlayLooping();
+        }
+
     }
 }

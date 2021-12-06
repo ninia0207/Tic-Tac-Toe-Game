@@ -40,8 +40,8 @@
             this.btn00 = new System.Windows.Forms.Button();
             this.resetbtn = new System.Windows.Forms.Button();
             this.newgamebtn = new System.Windows.Forms.Button();
-            this.displayText = new System.Windows.Forms.Label();
             this.playerTry = new System.Windows.Forms.Label();
+            this.displayText = new System.Windows.Forms.Label();
             this.TableLayout1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -188,6 +188,16 @@
             this.newgamebtn.UseVisualStyleBackColor = false;
             this.newgamebtn.Click += new System.EventHandler(this.newgamebtn_Click);
             // 
+            // playerTry
+            // 
+            this.playerTry.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.playerTry.AutoSize = true;
+            this.playerTry.Font = new System.Drawing.Font("Open Sans Semibold", 50F, System.Drawing.FontStyle.Bold);
+            this.playerTry.Location = new System.Drawing.Point(629, 201);
+            this.playerTry.Name = "playerTry";
+            this.playerTry.Size = new System.Drawing.Size(0, 92);
+            this.playerTry.TabIndex = 4;
+            // 
             // displayText
             // 
             this.displayText.AutoSize = true;
@@ -196,15 +206,6 @@
             this.displayText.Name = "displayText";
             this.displayText.Size = new System.Drawing.Size(0, 22);
             this.displayText.TabIndex = 3;
-            // 
-            // playerTry
-            // 
-            this.playerTry.AutoSize = true;
-            this.playerTry.Font = new System.Drawing.Font("Open Sans Semibold", 50F, System.Drawing.FontStyle.Bold);
-            this.playerTry.Location = new System.Drawing.Point(629, 201);
-            this.playerTry.Name = "playerTry";
-            this.playerTry.Size = new System.Drawing.Size(0, 92);
-            this.playerTry.TabIndex = 4;
             // 
             // Form2
             // 
@@ -239,7 +240,7 @@
         private System.Windows.Forms.Button btn00;
         private System.Windows.Forms.Button resetbtn;
         private System.Windows.Forms.Button newgamebtn;
-        private System.Windows.Forms.Label displayText;
         private System.Windows.Forms.Label playerTry;
+        private System.Windows.Forms.Label displayText;
     }
 }

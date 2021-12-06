@@ -33,21 +33,22 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.continuebtn = new System.Windows.Forms.Button();
+            this.playUntilNum = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // pl1Name
             // 
-            this.pl1Name.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pl1Name.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pl1Name.Location = new System.Drawing.Point(12, 187);
+            this.pl1Name.Location = new System.Drawing.Point(12, 188);
             this.pl1Name.Multiline = true;
             this.pl1Name.Name = "pl1Name";
-            this.pl1Name.Size = new System.Drawing.Size(287, 44);
+            this.pl1Name.Size = new System.Drawing.Size(336, 44);
             this.pl1Name.TabIndex = 0;
             // 
             // pl2Name
             // 
-            this.pl2Name.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.pl2Name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pl2Name.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pl2Name.Location = new System.Drawing.Point(444, 187);
             this.pl2Name.Multiline = true;
@@ -57,10 +58,9 @@
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 162);
+            this.label1.Location = new System.Drawing.Point(12, 163);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(191, 22);
             this.label1.TabIndex = 2;
@@ -68,10 +68,10 @@
             // 
             // label2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(440, 162);
+            this.label2.Location = new System.Drawing.Point(441, 163);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(194, 22);
             this.label2.TabIndex = 3;
@@ -82,7 +82,7 @@
             this.continuebtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.continuebtn.BackColor = System.Drawing.Color.SeaGreen;
             this.continuebtn.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.continuebtn.Location = new System.Drawing.Point(512, 381);
+            this.continuebtn.Location = new System.Drawing.Point(562, 384);
             this.continuebtn.Name = "continuebtn";
             this.continuebtn.Size = new System.Drawing.Size(219, 53);
             this.continuebtn.TabIndex = 4;
@@ -90,12 +90,33 @@
             this.continuebtn.UseVisualStyleBackColor = false;
             this.continuebtn.Click += new System.EventHandler(this.continuebtn_Click);
             // 
+            // playUntilNum
+            // 
+            this.playUntilNum.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playUntilNum.Location = new System.Drawing.Point(12, 285);
+            this.playUntilNum.Multiline = true;
+            this.playUntilNum.Name = "playUntilNum";
+            this.playUntilNum.Size = new System.Drawing.Size(287, 44);
+            this.playUntilNum.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(8, 260);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(84, 22);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Play until:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.ClientSize = new System.Drawing.Size(743, 446);
+            this.ClientSize = new System.Drawing.Size(793, 449);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.playUntilNum);
             this.Controls.Add(this.continuebtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -115,6 +136,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button continuebtn;
+        private System.Windows.Forms.TextBox playUntilNum;
+        private System.Windows.Forms.Label label3;
     }
 }
 
