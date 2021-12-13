@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.TableLayout1 = new System.Windows.Forms.TableLayoutPanel();
             this.btn22 = new System.Windows.Forms.Button();
             this.btn21 = new System.Windows.Forms.Button();
@@ -42,7 +43,9 @@
             this.newgamebtn = new System.Windows.Forms.Button();
             this.playerTry = new System.Windows.Forms.Label();
             this.displayText = new System.Windows.Forms.Label();
+            this.axWindowsMediaPlayer2 = new AxWMPLib.AxWindowsMediaPlayer();
             this.TableLayout1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).BeginInit();
             this.SuspendLayout();
             // 
             // TableLayout1
@@ -200,6 +203,7 @@
             // 
             // displayText
             // 
+            this.displayText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.displayText.AutoSize = true;
             this.displayText.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.displayText.Location = new System.Drawing.Point(554, 24);
@@ -207,12 +211,23 @@
             this.displayText.Size = new System.Drawing.Size(0, 22);
             this.displayText.TabIndex = 3;
             // 
+            // axWindowsMediaPlayer2
+            // 
+            this.axWindowsMediaPlayer2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.axWindowsMediaPlayer2.Enabled = true;
+            this.axWindowsMediaPlayer2.Location = new System.Drawing.Point(778, 12);
+            this.axWindowsMediaPlayer2.Name = "axWindowsMediaPlayer2";
+            this.axWindowsMediaPlayer2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer2.OcxState")));
+            this.axWindowsMediaPlayer2.Size = new System.Drawing.Size(10, 10);
+            this.axWindowsMediaPlayer2.TabIndex = 6;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.axWindowsMediaPlayer2);
             this.Controls.Add(this.playerTry);
             this.Controls.Add(this.displayText);
             this.Controls.Add(this.newgamebtn);
@@ -221,6 +236,7 @@
             this.Name = "Form2";
             this.Text = "Tic Tac Toe";
             this.TableLayout1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,5 +258,6 @@
         private System.Windows.Forms.Button newgamebtn;
         private System.Windows.Forms.Label playerTry;
         private System.Windows.Forms.Label displayText;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer2;
     }
 }

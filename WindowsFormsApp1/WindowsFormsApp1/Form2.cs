@@ -46,18 +46,19 @@ namespace WindowsFormsApp1
             tictactoe = new Game(Player1, Player2);
             playerTry.Text = "X";
             
-            PlaySound("background-music");
+            PlaySound("background-music-1");
         }
 
         
         private void Button_Is_Clicked(object sender, EventArgs e)
         {
             Button button = sender as Button;
-
+            PlaySound("button-click-1");
             if (button.Text != "") return;
             button.Text = counter % 2 == 1 ? Player2.X_Or_O.ToString() : Player1.X_Or_O.ToString();
             playerTry.Text = counter % 2 == 1 ? Player1.X_Or_O.ToString() : Player2.X_Or_O.ToString();
-            
+
+
             int row = 0;
             int col = 0;
 
@@ -93,6 +94,7 @@ namespace WindowsFormsApp1
                 Reset();
                 Player1.WinCount = 0;
                 Player2.WinCount = 0;
+                displayText.Text = $"{Player1.Name}({Player1.X_Or_O}): {Player1.WinCount} \n{Player2.Name}({Player2.X_Or_O}): {Player2.WinCount}";
             }
             else if (Player2.WinCount == PlayUntil)
             {
@@ -100,6 +102,7 @@ namespace WindowsFormsApp1
                 Reset();
                 Player1.WinCount = 0;
                 Player2.WinCount = 0;
+                displayText.Text = $"{Player1.Name}({Player1.X_Or_O}): {Player1.WinCount} \n{Player2.Name}({Player2.X_Or_O}): {Player2.WinCount}";
             }
             bool isDraw = tictactoe.IsGameDraw(counter);
             if (isDraw)
@@ -140,9 +143,11 @@ namespace WindowsFormsApp1
 
         public void PlaySound(string path)
         {
-            SoundPlayer sound = new SoundPlayer($@"C:\Users\ninia\OneDrive\Documents\GitHub\Tic-Tac-Toe-Game\Media\{path}.wav");
-            sound.PlayLooping();
+            var player = new WMPLib.WindowsMediaPlayer();
+            player.URL = $@"C:\Users\ninia\OneDrive\Documents\GitHub\Tic-Tac-Toe-Game\Media\{path}.wav";
+            player.controls.play();
         }
 
+        
     }
 }

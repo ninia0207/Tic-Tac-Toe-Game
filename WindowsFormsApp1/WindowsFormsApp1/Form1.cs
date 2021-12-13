@@ -13,7 +13,7 @@ namespace WindowsFormsApp1
         public Form1()
         {
             InitializeComponent();
-            form2.PlaySound("background-music");
+            form2.PlaySound("background-music-1");
         }
         
         private void continuebtn_Click(object sender, EventArgs e)
