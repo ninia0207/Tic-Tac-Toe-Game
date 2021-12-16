@@ -146,6 +146,7 @@ namespace WindowsFormsApp1
             var player = new WMPLib.WindowsMediaPlayer();
             player.URL = $@"C:\Users\ninia\OneDrive\Documents\GitHub\Tic-Tac-Toe-Game\Media\{path}.wav";
             player.controls.play();
+            player.settings.setMode("loop", true);
         }
 
         
